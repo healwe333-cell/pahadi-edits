@@ -8,5 +8,16 @@
     "aboutText": "apna time aayega",
     "storeName": "pahadi edit",
     "tagline": "pahado se dilo tk"
-  }
+  },
+  "products": [
+    {
+      "name": "ring",
+      "category": "nath",
+      "badge": "1",
+      "price": 123,
+      "oldPrice": 234,
+      "image": "/images/22222222.jpg",
+      "desc": "ram"
+    }
+  ]
 }
