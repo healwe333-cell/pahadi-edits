@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pahadi edits | Handcrafted Pahadi & Ethnic Jewelry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --soft-bg: #faf8f5;
+            --primary: #1a1a1a;
+            --gold: #b8860b;
+            --maroon: #6b1d1d;
+            --text: #222222;
+            --muted: #71717a;
+            --border: #e5e5e5;
+            --whatsapp: #16a34a;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.5; }
+        h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
+
+        .announcement-bar { background: var(--primary); color: #f4ecd8; text-align: center; padding: 8px 15px; font-size: 0.78rem; letter-spacing: 0.8px; text-transform: uppercase; }
+        header { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; padding: 12px 24px; }
+        .header-main { max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 15px; }
+        .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--primary); }
+        .brand img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--gold); }
+        .brand-name { font-size: 1.7rem; font-weight: 700; letter-spacing: 1px; text-transform: lowercase; line-height: 1; }
+        .brand-sub { font-size: 0.68rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1.5px; }
+
+        .search-box { flex: 1; max-width: 400px; }
+        .search-box input { width: 100%; padding: 9px 16px; border: 1px solid var(--border); border-radius: 30px; background: var(--soft-bg); font-size: 0.85rem; outline: none; }
+        .search-box input:focus { border-color: var(--gold); background: #fff; }
+
+        .header-actions { display: flex; align-items: center; gap: 12px; }
+        .icon-btn { background: none; border: 1px solid var(--border); padding: 8px 14px; border-radius: 25px; cursor: pointer; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 6px; text-decoration: none; color: var(--primary); }
+        .cart-pill { background: var(--primary); color: #fff; border-color: var(--primary); }
+        .cart-pill:hover { background: var(--gold); border-color: var(--gold); }
+
+        .hero { background: linear-gradient(to right, #f9f4ec, #f3e7d3); padding: 50px 20px; text-align: center; border-bottom: 1px solid #eadbc2; }
+        .hero-tag { color: var(--gold); font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+        .hero h2 { font-size: 2.6rem; color: var(--primary); margin: 8px 0 12px; }
+        .hero p { color: #52525b; max-width: 580px; margin: 0 auto 22px; font-size: 0.95rem; }
+        .hero-btn { background: var(--primary); color: #fff; padding: 12px 28px; text-decoration: none; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; display: inline-block; }
+
+        .section { max-width: 1240px; margin: 0 auto; padding: 40px 20px; }
+        .sec-header { text-align: center; margin-bottom: 28px; }
+        .sec-header h2 { font-size: 2rem; color: var(--primary); }
+        .sec-header p { color: var(--muted); font-size: 0.88rem; }
+
+        .cat-circles { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .cat-pill-btn { padding: 9px 20px; border: 1px solid var(--border); background: #fff; border-radius: 30px; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--primary); transition: 0.2s; }
+        .cat-pill-btn.active, .cat-pill-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+        .filter-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding: 15px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 25px; }
+        .budget-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+        .pill { padding: 6px 14px; border: 1px solid var(--border); background: #fff; border-radius: 20px; font-size: 0.8rem; cursor: pointer; }
+        .pill.active, .pill:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
+
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
+        .product-card { background: #fff; border: 1px solid #f0f0f0; position: relative; display: flex; flex-direction: column; transition: 0.3s; }
+        .product-card:hover { box-shadow: 0 10px 25px rgba(0,0,0,0.07); }
+        .badge { position: absolute; top: 10px; left: 10px; background: var(--primary); color: #fff; font-size: 0.68rem; padding: 3px 9px; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 600; }
+        .product-img { width: 100%; height: 280px; object-fit: cover; background: var(--soft-bg); }
+        .product-info { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; }
+        .p-cat { font-size: 0.72rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+        .p-title { font-size: 1rem; font-weight: 600; color: var(--primary); margin: 4px 0; }
+        .p-desc { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px; flex-grow: 1; }
+        .price-box { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+        .curr-price { font-size: 1.05rem; font-weight: 700; color: var(--primary); }
+        .old-price { font-size: 0.85rem; color: var(--muted); text-decoration: line-through; }
+        .discount-tag { font-size: 0.72rem; color: var(--maroon); background: #fee2e2; padding: 2px 6px; font-weight: 600; }
+        .add-cart-btn { width: 100%; padding: 10px; background: #fff; color: var(--primary); border: 1px solid var(--primary); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; cursor: pointer; }
+        .add-cart-btn:hover { background: var(--primary); color: #fff; }
+
+        .feedback-box { max-width: 540px; margin: 0 auto 30px; background: #fff; padding: 24px; border: 1px solid var(--border); }
+        .feedback-box input, .feedback-box select, .feedback-box textarea { width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid var(--border); font-family: inherit; font-size: 0.85rem; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .review-card { background: var(--soft-bg); padding: 20px; border: 1px solid var(--border); }
+        .empty-reviews { text-align: center; color: var(--muted); font-size: 0.88rem; grid-column: 1 / -1; }
+
+        footer { background: var(--primary); color: #e4e4e7; padding: 50px 20px 25px; }
+        .footer-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; }
+        .footer-grid h3 { color: #f4ecd8; font-size: 1.3rem; margin-bottom: 12px; }
+        .footer-grid p, .footer-grid a { color: #a1a1aa; font-size: 0.85rem; text-decoration: none; display: block; margin-bottom: 8px; }
+        .copyright { text-align: center; margin-top: 35px; padding-top: 20px; border-top: 1px solid #333; font-size: 0.78rem; color: #71717a; }
+
+        .drawer-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; justify-content: flex-end; }
+        .drawer { background: #fff; width: 100%; max-width: 430px; height: 100%; padding: 22px; overflow-y: auto; display: flex; flex-direction: column; }
+        .drawer-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 15px; }
+        .cart-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f4f4f5; }
+        .upi-panel { background: var(--soft-bg); border: 1px dashed var(--gold); padding: 12px; text-align: center; margin: 14px 0; }
+        .upi-btn { display: inline-block; background: var(--primary); color: #fff; padding: 8px 16px; font-size: 0.8rem; text-decoration: none; margin-top: 6px; font-weight: 600; }
+        .input-field { width: 100%; padding: 9px; margin-bottom: 8px; border: 1px solid var(--border); font-size: 0.85rem; }
+        .wa-checkout-btn { width: 100%; background: var(--whatsapp); color: #fff; border: none; padding: 13px; font-weight: 700; font-size: 0.92rem; cursor: pointer; margin-top: 8px; text-transform: uppercase; }
+
+        @media (max-width: 650px) { .search-box { display: none; } .hero h2 { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+
+    <div class="announcement-bar" id="top-banner">✨ Handcrafted Himachali & Bridal Jewelry • Free Shipping on Prepaid UPI Orders ✨</div>
+
+    <header>
+        <div class="header-main">
+            <a href="#" class="brand">
+                <img id="brand-logo" src="" alt="logo" onerror="this.src='https://via.placeholder.com/80/1a1a1a/f4ecd8?text=pe'">
+                <div>
+                    <div class="brand-name serif" id="store-name">pahadi edits</div>
+                    <div class="brand-sub" id="store-tagline">Fine Ethnic Jewelry</div>
+                </div>
+            </a>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search jewelry..." onkeyup="applyFilters()">
+            </div>
+            <div class="header-actions">
+                <a id="header-wa" href="#" target="_blank" class="icon-btn">WhatsApp</a>
+                <button class="icon-btn cart-pill" onclick="openCart()">Bag (<span id="cart-count">0</span>)</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-tag">Handpicked Heritage Collection</div>
+        <h2>Timeless Elegance for Every Occasion</h2>
+        <p>Discover authentic Pahadi Nath, Kundan chokers, and handcrafted earrings delivered across India.</p>
+        <a href="#catalog" class="hero-btn">Explore Collection</a>
+    </section>
+
+    <section class="section" id="catalog">
+        <div class="sec-header">
+            <h2>Shop By Category</h2>
+            <p>Select a category to explore curated designs</p>
+        </div>
+
+        <div class="cat-circles" id="category-buttons"></div>
+
+        <div class="filter-bar" style="margin-top: 25px;">
+            <strong style="font-size: 0.85rem; text-transform: uppercase;">Budget Shopping:</strong>
+            <div class="budget-pills">
+                <button class="pill active" onclick="filterPrice(999999, this)">All Prices</button>
+                <button class="pill" onclick="filterPrice(999, this)">Under ₹999</button>
+                <button class="pill" onclick="filterPrice(1999, this)">Under ₹1,999</button>
+                <button class="pill" onclick="filterPrice(4999, this)">Under ₹4,999</button>
+            </div>
+        </div>
+
+        <div class="products-grid" id="products-grid"></div>
+    </section>
+
+    <section class="section">
+        <div class="sec-header">
+            <h2>Customer Feedback</h2>
+            <p>Shopped with us? Share your experience below</p>
+        </div>
+
+        <div class="feedback-box">
+            <h3 style="margin-bottom: 12px; font-size: 1.4rem;">Write a Review</h3>
+            <input type="text" id="rev-name" placeholder="Your Name & City (e.g. Neha, Palampur)">
+            <select id="rev-stars">
+                <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐ (5/5 - Loved it)</option>
+                <option value="⭐⭐⭐⭐">⭐⭐⭐⭐ (4/5 - Very Good)</option>
+                <option value="⭐⭐⭐">⭐⭐⭐ (3/5 - Good)</option>
+            </select>
+            <textarea id="rev-msg" rows="3" placeholder="Write your feedback about our jewelry..."></textarea>
+            <button class="add-cart-btn" style="background: var(--primary); color: #fff;" onclick="submitReview()">Submit Feedback</button>
+        </div>
+
+        <div class="reviews-grid" id="reviews-list">
+            <p class="empty-reviews" id="no-reviews-msg">No reviews yet. Be the first to share your feedback!</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h3 class="serif" style="text-transform: lowercase;" id="foot-brand">pahadi edits</h3>
+                <p id="foot-about">Celebrating Himachali heritage and timeless Indian craftsmanship.</p>
+            </div>
+            <div>
+                <h3>Customer Care</h3>
+                <p id="foot-addr">📍 Nagrota Bagwan, Kangra, HP</p>
+                <p id="foot-wa">📞 WhatsApp: +91 9876543210</p>
+                <a id="foot-insta" href="#" target="_blank">📸 Instagram: @pahadiedits</a>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <a href="#catalog">Shop Collection</a>
+                <a href="/admin/">Admin Login</a>
+            </div>
+        </div>
+        <div class="copyright">© 2026 pahadi edits. All Rights Reserved.</div>
+    </footer>
+
+    <div class="drawer-overlay" id="cart-drawer">
+        <div class="drawer">
+            <div class="drawer-head">
+                <h3 style="font-size: 1.5rem;">Your Shopping Bag</h3>
+                <button onclick="closeCart()" style="background:none; border:none; font-size:1.6rem; cursor:pointer;">&times;</button>
+            </div>
+            <div id="cart-items" style="flex-grow: 1;"></div>
+            <div style="border-top: 1px solid var(--border); padding-top: 12px; margin-top: 12px;">
+                <div style="display:flex; justify-content:space-between; font-weight:700; font-size:1.1rem;">
+                    <span>Total Amount:</span>
+                    <span>₹<span id="cart-total">0</span></span>
+                </div>
+                <div class="upi-panel">
+                    <p style="font-size: 0.8rem;"><strong>Direct UPI Payment:</strong></p>
+                    <p style="font-weight: 700; color: var(--primary); margin: 3px 0;" id="upi-text"></p>
+                    <a id="upi-link" href="#" class="upi-btn">Pay via UPI App</a>
+                </div>
+                <input type="text" id="cust-name" class="input-field" placeholder="Full Name *">
+                <input type="tel" id="cust-phone" class="input-field" placeholder="WhatsApp / Mobile Number *">
+                <textarea id="cust-addr" class="input-field" rows="2" placeholder="Complete Delivery Address & PIN Code *"></textarea>
+                <select id="cust-pay" class="input-field">
+                    <option value="Prepaid via UPI">Payment: Prepaid via UPI</option>
+                    <option value="Confirm on WhatsApp">Payment: Confirm on WhatsApp</option>
+                </select>
+                <button class="wa-checkout-btn" onclick="checkoutWhatsApp()">Place Order on WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let SHOP_DATA = {};
+        let PRODUCTS = [];
+        let cart = [];
+        let activeCategory = "All";
+        let maxPrice = 999999;
+
+        async function loadStoreData() {
+            try {
+                const res = await fetch('data.json?v=' + Date.now());
+                const data = await res.json();
+                SHOP_DATA = data.settings;
+                PRODUCTS = data.products || [];
+
+                document.getElementById("store-name").innerText = SHOP_DATA.storeName;
+                document.getElementById("foot-brand").innerText = SHOP_DATA.storeName;
+                document.getElementById("store-tagline").innerText = SHOP_DATA.tagline;
+                document.getElementById("brand-logo").src = SHOP_DATA.logo;
+                document.getElementById("foot-about").innerText = SHOP_DATA.aboutText;
+                document.getElementById("foot-addr").innerText = "📍 " + SHOP_DATA.address;
+                document.getElementById("foot-wa").innerText = "📞 WhatsApp: +" + SHOP_DATA.whatsappNumber;
+                document.getElementById("foot-insta").href = SHOP_DATA.instagramUrl;
+                document.getElementById("header-wa").href = https://wa.me/${SHOP_DATA.whatsappNumber};
+                document.getElementById("upi-text").innerText = SHOP_DATA.upiId;
+
+                renderCategories();
+                applyFilters();
+            } catch (e) {
+                console.error("Data load error:", e);
+            }
+        }
+
+        function renderCategories() {
+            const cats = ["All", ...new Set(PRODUCTS.map(p => p.category))];
+            document.getElementById("category-buttons").innerHTML = cats.map((c, idx) => `
+                <button class="cat-pill-btn ${idx === 0 ? 'active' : ''}" onclick="filterCategory('${c}', this)">${c}</button>
+            `).join("");
+        }
+
+        function applyFilters() {
+            const query = document.getElementById("search-input").value.toLowerCase();
+            const filtered = PRODUCTS.filter(p => {
+                const matchCat = activeCategory === "All" || p.category === activeCategory;
+                const matchPrice = Number(p.price) <= maxPrice;
+                const matchSearch = p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query);
+                return matchCat && matchPrice && matchSearch;
+            });
+
+            const grid = document.getElementById("products-grid");
+            if (filtered.length === 0) {
+                grid.innerHTML = "<p style='grid-column:1/-1; text-align:center; color:#71717a;'>No items found.</p>";
+                return;
+            }
+
+            grid.innerHTML = filtered.map((p, index) => {
+                const off = p.oldPrice && p.oldPrice > p.price ? Math.round(((p.oldPrice - p.price) / p.oldPrice) * 100) : 0;
+                return `
+                    <div class="product-card">
+                        ${p.badge ? <span class="badge">${p.badge}</span> : ""}
+                        <img src="${p.image}" alt="${p.name}" class="product-img">
+                        <div class="product-info">
+                            <span class="p-cat">${p.category}</span>
+                            <div class="p-title">${p.name}</div>
+                            <div class="p-desc">${p.desc || ""}</div>
+                            <div class="price-box">
+                                <span class="curr-price">₹${Number(p.price).toLocaleString('en-IN')}</span>
+                                ${p.oldPrice ? <span class="old-price">₹${Number(p.oldPrice).toLocaleString('en-IN')}</span> : ""}
+                                ${off > 0 ? <span class="discount-tag">${off}% OFF</span> : ""}
+                            </div>
+                            <button class="add-cart-btn" onclick="addToCart(${index})">Add to Bag</button>
+                        </div>
+                    </div>
+                `;
+            }).join("");
+        }
+
+        function filterCategory(cat, el) {
+            activeCategory = cat;
+            document.querySelectorAll(".cat-pill-btn").forEach(b => b.classList.remove("active"));
+            el.classList.add("active");
+            applyFilters();
+        }
+
+        function filterPrice(limit, el) {
+            maxPrice = limit;
+            document.querySelectorAll(".pill").forEach(p => p.classList.remove("active"));
+            el.classList.add("active");
+            applyFilters();
+        }
+
+        function addToCart(idx) {
+            const prod = PRODUCTS[idx];
+            const found = cart.find(c => c.name === prod.name);
+            if (found) found.qty++; else cart.push({ ...prod, qty: 1 });
+            updateCart();
+            openCart();
+        }
+
+        function updateCart() {
+            document.getElementById("cart-count").innerText = cart.reduce((s, i) => s + i.qty, 0);
+            const container = document.getElementById("cart-items");
+            if (cart.length === 0) {
+                container.innerHTML = "<p style='color:#71717a; text-align:center; margin-top:30px;'>Your bag is empty.</p>";
+                document.getElementById("cart-total").innerText = "0";
+                return;
+            }
+            let total = 0;
+            container.innerHTML = cart.map((item, idx) => {
+                total += Number(item.price) * item.qty;
+                return `
+                    <div class="cart-row">
+                        <div><strong>${item.name}</strong><br><small>₹${item.price} × ${item.qty}</small></div>
+                        <div style="display:flex; gap:6px;">
+                            <button onclick="changeQty(${idx}, -1)" style="width:26px; height:26px;">-</button>
+                            <button onclick="changeQty(${idx}, 1)" style="width:26px; height:26px;">+</button>
+                        </div>
+                    </div>
+                `;
+            }).join("");
+            document.getElementById("cart-total").innerText = total.toLocaleString('en-IN');
+            document.getElementById("upi-link").href = upi://pay?pa=${SHOP_DATA.upiId}&pn=${encodeURIComponent(SHOP_DATA.storeName)}&am=${total}&cu=INR;
+        }
+
+        function changeQty(idx, delta) {
+            cart[idx].qty += delta;
+            if (cart[idx].qty <= 0) cart.splice(idx, 1);
+            updateCart();
+        }
+
+        function openCart() { updateCart(); document.getElementById("cart-drawer").style.display = "flex"; }
+        function closeCart() { document.getElementById("cart-drawer").style.display = "none"; }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) return alert("Your bag is empty.");
+            const name = document.getElementById("cust-name").value.trim();
+            const phone = document.getElementById("cust-phone").value.trim();
+            const addr = document.getElementById("cust-addr").value.trim();
+            const pay = document.getElementById("cust-pay").value;
+            if (!name || !phone || !addr) return alert("Please fill Name, Phone & Address.");
+
+            let total = 0;
+            const lines = cart.map((i, n) => {
+                total += Number(i.price) * i.qty;
+                return ${n + 1}. ${i.name} (Qty: ${i.qty}) - ₹${Number(i.price) * i.qty};
+            }).join("\n");
+
+            const message = *NEW ORDER — ${SHOP_DATA.storeName}*\n\n${lines}\n\n*Total:* ₹${total}\n*Payment:* ${pay}\n\n*Customer:*\n${name}\n${phone}\n${addr};
+            window.open(https://wa.me/${SHOP_DATA.whatsappNumber}?text=${encodeURIComponent(message)}, "_blank");
+        }
+
+        function submitReview() {
+            const name = document.getElementById("rev-name").value.trim();
+            const stars = document.getElementById("rev-stars").value;
+            const msg = document.getElementById("rev-msg").value.trim();
+            if (!name || !msg) return alert("Please enter your name and review.");
+            const emptyMsg = document.getElementById("no-reviews-msg");
+            if (emptyMsg) emptyMsg.remove();
+            const card = document.createElement("div");
+            card.className = "review-card";
+            card.innerHTML = <div>${stars}</div><p>"${msg}"</p><strong>— ${name}</strong>;
+            document.getElementById("reviews-list").prepend(card);
+            document.getElementById("rev-name").value = "";
+            document.getElementById("rev-msg").value = "";
+        }
+
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+                }
+            });
+        }
+
+        loadStoreData();
+    </script>
+</body>
+</html>

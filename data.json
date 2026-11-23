@@ -1,0 +1,23 @@
+﻿{
+  "settings": {
+    "storeName": "pahadi edits",
+    "tagline": "Fine Ethnic Jewelry",
+    "logo": "https://via.placeholder.com/80/1a1a1a/f4ecd8?text=pe",
+    "whatsappNumber": "919876543210",
+    "upiId": "yourupi@okaxis",
+    "address": "Nagrota Bagwan, Kangra, Himachal Pradesh (176047)",
+    "instagramUrl": "https://instagram.com/pahadiedits",
+    "aboutText": "Celebrating Himachali heritage and timeless Indian craftsmanship. Curated artificial, bridal, and festive jewelry delivered to your doorstep."
+  },
+  "products": [
+    {
+      "name": "Royal Himachali Bridal Nath",
+      "category": "Pahadi Nath",
+      "badge": "Best Seller",
+      "price": 1499,
+      "oldPrice": 2499,
+      "image": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500",
+      "desc": "Handcrafted gold-plated traditional Pahadi Nath with pearl chain."
+    }
+  ]
+}
