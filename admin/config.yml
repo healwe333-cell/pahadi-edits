@@ -1,0 +1,38 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "store"
+    label: "Store & Products"
+    files:
+      - label: "Manage Shop & Products"
+        name: "catalog"
+        file: "data.json"
+        fields:
+          - label: "Shop Settings (Contact, Logo, UPI)"
+            name: "settings"
+            widget: "object"
+            fields:
+              - { label: "Store Name", name: "storeName", widget: "string", default: "pahadi edits" }
+              - { label: "Tagline", name: "tagline", widget: "string", default: "Fine Ethnic Jewelry" }
+              - { label: "Brand Logo", name: "logo", widget: "image" }
+              - { label: "WhatsApp Number (91 ke saath)", name: "whatsappNumber", widget: "string" }
+              - { label: "UPI ID", name: "upiId", widget: "string" }
+              - { label: "Shop Address", name: "address", widget: "string" }
+              - { label: "Instagram Link", name: "instagramUrl", widget: "string" }
+              - { label: "About Us Text", name: "aboutText", widget: "text" }
+          - label: "Jewelry Products"
+            name: "products"
+            widget: "list"
+            fields:
+              - { label: "Product Name", name: "name", widget: "string" }
+              - { label: "Category (e.g. Pahadi Nath, Earrings, Necklaces)", name: "category", widget: "string" }
+              - { label: "Badge (Optional: Best Seller / New)", name: "badge", widget: "string", required: false }
+              - { label: "Selling Price (₹)", name: "price", widget: "number" }
+              - { label: "Original MRP (₹)", name: "oldPrice", widget: "number", required: false }
+              - { label: "Product Photo", name: "image", widget: "image" }
+              - { label: "Description", name: "desc", widget: "text", required: false }
